@@ -27,7 +27,7 @@ const addData = () => {
                     i.name = prdname;
                     i.price = prdprice;
                     i.description = prdtext;
-                    i.image=prdimage;
+                    i.image = prdimage;
                 }
             })
             localStorage.setItem("prdInfo", JSON.stringify(data));
@@ -41,7 +41,7 @@ const addData = () => {
                     name: prdname,
                     price: prdprice,
                     description: prdtext,
-                    image : prdimage,
+                    image: prdimage,
 
                 }
                 prdData = data;
@@ -53,7 +53,7 @@ const addData = () => {
                     name: prdname,
                     price: prdprice,
                     description: prdtext,
-                    image : prdimage,
+                    image: prdimage,
 
                 }
             }
@@ -66,7 +66,7 @@ const addData = () => {
     document.prdfrm.prdname.value = "";
     document.prdfrm.prdprice.value = "";
     document.prdfrm.prdtext.value = "";
-    document.prdfrm.prdimage.src="";
+    document.prdfrm.prdimage.src = "";
     document.prdfrm.reset();
 
     displayPrdData();
@@ -79,6 +79,7 @@ const displayPrdData = () => {
 
     let listdata = "";
     data.map((i) => {
+
         catdata.filter((j) => {
             if (j.id == i.category) {
                 return i.cname = j.name;
@@ -125,14 +126,14 @@ const editPrdData = (id) => {
     document.prdfrm.prdimage.src = cat[0].image;
 }
 
- const previewImage = (e) => {
+const previewImage = (e) => {
     var input = e.target;
     var image = document.getElementById('prdimage');
     if (input.files && input.files[0]) {
         let reader = new FileReader();
         reader.onload = function (e) {
             image.src = e.target.result;
-            localStorage.setItem("prdImageInfo",JSON.stringify(e.target.result));
+            localStorage.setItem("prdImageInfo", JSON.stringify(e.target.result));
         }
         reader.readAsDataURL(input.files[0]);
     }
